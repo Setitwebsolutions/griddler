@@ -1,6 +1,6 @@
 class Griddler::EmailsController < ActionController::Base
   protect_from_forgery with: :exception, prepend: true
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, raise: false
   def create
     normalized_params.each do |p|
       process_email email_class.new(p)
